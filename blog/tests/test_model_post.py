@@ -1,6 +1,7 @@
 from django.test import TestCase
 from datetime import datetime
-from blog.models import Post, Category, User
+from blog.models import Post, Category
+from django.contrib.auth.models import User
 
 
 class TestCreatePost(TestCase):
@@ -40,7 +41,7 @@ class TestCreatePost(TestCase):
         self.assertEqual(author, 'test_user')
 
     def test_create_at(self):
-        '''Subscription must have on auto published attr'''
+        '''Verifica hora da publicação'''
         self.assertIsInstance(self.post.published, datetime)
 
     def test_email_can_be_blank(self):

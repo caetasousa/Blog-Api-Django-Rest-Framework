@@ -4,7 +4,6 @@ from blog.models import Post, Category
 from blog_api.serializers import PostSerializer
 
 class PostSerializerTestCase(TestCase):
-
     def setUp(self):
         self.test_user = User.objects.create(
             username='test_user1', 

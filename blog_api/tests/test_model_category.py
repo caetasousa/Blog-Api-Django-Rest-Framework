@@ -1,5 +1,5 @@
 from django.test import TestCase
-from blog.models import Category
+from blog_api.models import Category
 
 
 class TestCreateCategory(TestCase):

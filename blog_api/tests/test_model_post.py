@@ -1,6 +1,6 @@
 from django.test import TestCase
 from datetime import datetime
-from blog.models import Post, Category
+from blog_api.models import Post, Category
 from django.contrib.auth.models import User
 
 

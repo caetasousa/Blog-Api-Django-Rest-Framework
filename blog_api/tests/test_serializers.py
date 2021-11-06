@@ -29,7 +29,7 @@ class PostSerializerTestCase(TestCase):
 
     def test_fields_post_serializer(self):
         """ Teste que verifica os campos que estão sendo serializados """
-        self.assertEqual(set(self.data.keys()), set(['id', 'title', 'author', 'excerpt', 'content', 'status'] ))
+        self.assertEqual(set(self.data.keys()), set(['id', 'title', 'author', 'excerpt', 'content', 'status', 'category'] ))
 
     def test_content_serializer_title(self):
         """ Verifica o conteudo de title """
@@ -46,6 +46,10 @@ class PostSerializerTestCase(TestCase):
     def test_content_serializer_author(self):
         """ Verifica o conteudo de author """
         self.assertEqual(self.data['author'], self.test_post.author_id)
+    
+    def test_content_serializer_category(self):
+        """ Verifica o conteudo de author """
+        self.assertEqual(self.data['category'], self.test_post.category_id)
 
     def test_content_serializer_status(self):
         """ Verifica o conteudo de status """

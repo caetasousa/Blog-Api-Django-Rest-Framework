@@ -43,7 +43,7 @@ class PostTests(APITestCase):
         """ Verifica se o post foi criado com sucesso """
         response = self.client.post(self.url_list_create, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(len(response.data), 6)
+        self.assertEqual(len(response.data), 7)
 
     def test_view_get_id(self):
         """ Verifica se ta retornando o post pelo id """

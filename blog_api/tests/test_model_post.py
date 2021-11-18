@@ -1,18 +1,19 @@
 from django.test import TestCase
 from datetime import datetime
 from blog_api.models import Post, Category
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 
 class TestCreatePost(TestCase):
     def setUp(self):
+        db = get_user_model()
         self.test_category = Category.objects.create(name='django')
-        self.test_category.save()
 
-        self.test_user = User.objects.create_user(
-            username='test_user', 
-            password='123456789')
-        self.test_user.save()
+        self.test_user = db.objects.create_user(
+                            'testuser@user.com', 
+                            'test_user', 
+                            'firstname', 
+                            '123456789')
 
         self.test_post = Post.objects.create(
             category_id= self.test_category.id, 
@@ -22,7 +23,6 @@ class TestCreatePost(TestCase):
             slug='post-title', 
             author_id= self.test_user.id, 
             status='published')
-        self.test_post.save()
 
         self.post = Post.postobjects.get(id=1)
         
